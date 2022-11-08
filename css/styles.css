@@ -1,0 +1,195 @@
+/* reset*/ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*estilos generales*/
+body{
+    background-color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+/*estilos del contenedor principal*/
+.contenedor{
+    height: 100vh; /*pueda tomar el 100% del alto del navegador */
+}
+
+/*estilos de header*/
+header{
+    display: none; /*desaparece la informacion que este apareciendo en esta etiqueta*/
+}
+
+
+
+
+/*estilos de main */
+main{
+    display: flex; /*de manera predeterminada se trabaja como horizontal*/
+    flex-direction: column; /*baja la informacion de manera vertical */
+    align-items: center; /*trabaja en el eje vertical para centrar la informacion*/ 
+
+    
+}
+main h2 { 
+    color: #182941; /*color del texto */
+    text-align: center;
+
+}
+
+main h2 span{
+    display: block; /*para covertir de linea a bloque*/
+}
+
+main p{
+    text-align: center;
+    padding: 1rem; /*para manejar el espacio interno del elemento */
+}
+main .boton{
+    background-color: #51B0DF;
+    color: whitesmoke;
+    padding: 0.8rem;
+    box-shadow: 1px 1px 5px black; /*sombreado de la caja  la tercera propiedad se coloca la opacidad*/
+    text-shadow: 1px 1px 5px black;
+}
+main img{
+    width: 70%; /*para modificar el ancho de la img */
+
+
+}
+
+
+/* estilos de section */
+section{
+    display: none; /* para qu desaparezca */
+}
+/*estilos de footer*/
+footer h4{
+    text-align: center;
+}
+
+
+/*mq*/ 
+@media screen and (min-width:1024px){ /*es una condicion el media query*/
+    .contenedor{
+        display: grid;
+        height: 100vh;/*es que pueda ocupar el 100%*/
+    }
+    header{
+        display: block; /*para que el header vuelva hacer una etiqueta de bloque es como desbloquear el none de arriba */
+        display: flex;
+        justify-content: space-around; /*para alinear de manera linda los elementos de manera horizontal*/
+        align-items: center;
+        
+    }
+    header nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+    }
+
+    /* animaciones de los botones del menu */
+    /*header nav ul li{
+        /*transition: 0.5s; } /* es para que se devuelva de manera mas leta la transicion del hover < lo que esta abajo>*/
+    
+
+    header nav ul li:hover{
+        background-color: #51B0DF; /* fondo cuando se pasa por encima el mouse*/
+        font-weight: bold; /*convierte las letras en bold*/
+        transform:scale(0.9); /*se agrande el elemento*/
+        /*transform: rotate(360deg); /*que rote 360 grados*/ 
+        /*duraccion de la transcision de arriba */
+        /*transition: 3s ; /* para colocar segundos solo hay que colocar una s*/
+        box-shadow: 1px 1px 2px black; /* para generar una sombra*/
+        color: whitesmoke;
+
+    
+    }
+    
+    main{
+        display: grid;
+        grid-template-columns: 2fr 2fr ;
+        grid-template-rows: 0.5fr 1fr 0.5fr 0.5fr;
+        grid-template-areas: 
+        "p img" 
+        "h2 img"
+        "p-2 img"
+        "boton img" ;
+        justify-content: center;
+        justify-items: center;
+    }
+    main p{
+        grid-area: p;
+    }
+    main h2{
+        grid-area: h2;
+    }
+    main .p-dos{
+        grid-area: p-2;
+    }
+    main .boton{
+        grid-area: boton;
+    }
+    /*animaciones del boton */
+
+
+    main .boton:hover{
+        box-shadow: 1px 1px 2px black ;
+        transform: scale(0.9);
+    }
+    main img{
+        grid-area: img;
+    }
+    /*animacion de img*/
+    main img:hover{
+        filter: drop-shadow(5px 5px 3px); /* para darle una sombra a img en png unicamente*/
+        transform: scale(1.0);
+    }
+
+
+
+/*estilos de section*/ 
+section{
+    display: block;
+    display: flex; /* se estrutura de manera horizontal*/
+    background-color: #BEE0F1; /*fondo de la section */
+}
+section div {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; /*se usa para que se alineen las img con el texto*/
+}
+
+/*animaciones de img section */
+section div img{
+    width: 20%;
+    filter: drop-shadow(1px 1px 3px);
+    animation-name: img-movimiento;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-direction: alternate-reverse;
+    animation-delay: 0s;
+}
+@keyframes img-movimiento {
+    to{
+        transform: scale(1);
+    }
+    from{
+        transform: scale(1.3);
+    }
+}
+
+ 
+
+section div p{
+    text-align: center;
+}
+
+footer{
+    display: none;
+}
+}
